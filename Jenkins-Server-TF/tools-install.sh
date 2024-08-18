@@ -42,11 +42,10 @@ sudo ./aws/install
 # Installing Kubectl
 #!/bin/bash
 sudo apt update
-sudo apt install curl -y
-sudo curl -LO "https://dl.k8s.io/release/v1.28.4/bin/linux/amd64/kubectl"
-sudo chmod +x kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
-kubectl version --client
+kubectl version -o yaml
 
 # Installing Terraform
 #!/bin/bash
